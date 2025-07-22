@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Free Fire Diamond Generator</title>
+  <style>
+    body {
+      background: #111;
+      color: #0f0;
+      font-family: monospace;
+      text-align: center;
+      padding-top: 100px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #000;
+      color: #000;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    .prank-message {
+      font-size: 24px;
+      color: red;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Free Fire Diamond Generator</h1>
+  <p>Enter your Free Fire ID and how many diamonds you want:</p>
+
+  <input type="text" id="ffid" placeholder="Enter UID/IGN"><br>
+  <input type="number" id="diamonds" placeholder="Enter amount (max 99999)"><br>
+  <button onclick="generate()">Generate</button>
+
+  <div id="loading" class="hidden">🔄 Processing... Please wait...</div>
+  <div id="result" class="hidden prank-message">being processed with the diamond generator using your uid.</div>
+
+  <script>
+    function generate() {
+      var id = document.getElementById("ffid").value;
+      var diamonds = document.getElementById("diamonds").value;
+
+      if (id === "" || diamonds === "") {
+        alert("Please fill out all fields!");
+        return;
+      }
+
+      document.getElementById("loading").classList.remove("hidden");
+
+      setTimeout(() => {
+        document.getElementById("loading").classList.add("hidden");
+        document.getElementById("result").classList.remove("hidden");
+      }, 3000); // prank delay
+    }
+  </script>
+
+</body>
+</html>
